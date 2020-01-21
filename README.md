@@ -9,7 +9,6 @@ spring boot 集成kafka发送和接收消息
 	  <groupId>org.springframework.kafka</groupId>
 	  <artifactId>spring-kafka</artifactId>
     </dependency>
-	
 ````
 #### 生产者配置
 参考KafkaProducerConfig.java
