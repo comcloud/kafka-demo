@@ -1,7 +1,7 @@
 # kafka-demo
 
 #### 介绍
-spring boot 集成kafka发送和接收消息
+spring boot 集成kafka发送和接收消息，适用于集成了SASL_PLAINTEXT方式动态权限管理的kafka集群环境
 
 #### pom依赖
 ````
