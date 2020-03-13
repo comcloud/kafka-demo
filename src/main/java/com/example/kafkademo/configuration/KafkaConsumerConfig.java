@@ -73,7 +73,7 @@ public class KafkaConsumerConfig {
 
 
     private Map<String, Object> consumerConfigs() {
-        Map<String, Object> props = new HashMap<>(10);
+        Map<String, Object> props = new HashMap<>(20);
         props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, autoCommitInterval);
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, autoCommit);
