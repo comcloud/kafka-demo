@@ -117,7 +117,7 @@ public class KafkaConsumerConfig {
         //手动提交无需配置
         factory.getContainerProperties().setPollTimeout(pollTimeout);
         //设置提交偏移量的方式， MANUAL_IMMEDIATE 表示消费一条提交一次；MANUAL表示批量提交一次
-        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL);
         return factory;
     }
 
