@@ -19,11 +19,11 @@ public class KafkaController {
     private KafkaSender kafkaSender;
 
     @PostMapping("send")
-    public String send(String msg){
+    public String send(String msg,String topic){
 
         Assert.notNull(msg,"消息内容不能为空");
 
-        kafkaSender.sendMessage("hello",msg);
+        kafkaSender.sendMessage(topic,msg);
 
         return "success";
     }

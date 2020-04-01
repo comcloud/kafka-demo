@@ -32,9 +32,10 @@ public class KafkaSender {
         ListenableFuture<SendResult<String, String>> sender = KAFKA_TEMPLATE.send(new ProducerRecord<>(topic, message));
 
         sender.addCallback(
-                result -> log.info("Send success:offset({}),partition({})",
+                result -> log.info("Send success:offset({}),partition({}),topic({})",
                         result.getRecordMetadata().offset(),
-                        result.getRecordMetadata().partition()),
+                        result.getRecordMetadata().partition(),
+                        result.getRecordMetadata().topic()),
                 ex -> log.error("Send fail:{}", ex.getMessage()));
     }
 }

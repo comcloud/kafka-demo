@@ -6,8 +6,8 @@ kafka:
     retries: 3                                          #发送失败后的重复发送次数
     buffer-memory: 33554432                             #32M批处理缓冲区
     linger: 5                                           #延迟发送时间ms，如果未达到batch-size，但是时间达到linger将发送消息
-    username: reader                                    #连接消费用户名
-    password: reader-pwd                                #消费连接用户密码
+    username: writer                                    #连接消费用户名
+    password: writer-pwd                                #消费连接用户密码
   consumer:
     bootstrap-servers: 10.199.96.148:9092,10.199.96.148:9093,10.199.96.148:9094
     auto-offset-reset: latest                           #新建消费组时从什么位置开始消费  latest：最近位置   earliest：最早位置
