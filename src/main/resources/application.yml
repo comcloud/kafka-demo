@@ -11,7 +11,7 @@ kafka:
   consumer:
     bootstrap-servers: 10.199.96.148:9092,10.199.96.148:9093,10.199.96.148:9094
     auto-offset-reset: latest                           #新建消费组时从什么位置开始消费  latest：最近位置   earliest：最早位置
-    max-poll-records: 500                               #批量消费一次最大拉取的数据量
+    max-poll-records: 80                               #批量消费一次最大拉取的数据量
     enable-auto-commit: false                           #是否开启自动提交
     auto-commit-interval: 1000                          #自动提交的间隔时间，自动提交开启时生效
     session-timeout: 20000                              #连接超时时间
