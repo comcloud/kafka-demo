@@ -15,10 +15,7 @@ import java.util.Map;
 
 /**
  * 生产者配置
- * @author shawn yang
- * @version [v1.0]
- * @Description
- * @CreateDate 2020/1/21
+ * @author rayss
  */
 @Configuration
 @EnableKafka
@@ -39,11 +36,11 @@ public class KafkaProducerConfig {
     @Value("${kafka.producer.linger}")
     private Integer linger;
 
-    @Value("${kafka.producer.username}")
-    private String username;
-
-    @Value("${kafka.producer.password}")
-    private String password;
+//    @Value("${kafka.producer.username}")
+//    private String username;
+//
+//    @Value("${kafka.producer.password}")
+//    private String password;
 
     private Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>(16);
@@ -54,16 +51,15 @@ public class KafkaProducerConfig {
         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, bufferMemory);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        props.put("security.protocol","SASL_PLAINTEXT");
-        props.put("sasl.mechanism","SCRAM-SHA-512");
-        props.put("sasl.jaas.config",
-                "org.apache.kafka.common.security.scram.ScramLoginModule required username=\""+username+"\" password=\""+password+"\";");
+//        props.put("security.protocol","SASL_PLAINTEXT");
+//        props.put("sasl.mechanism","SCRAM-SHA-512");
+//        props.put("sasl.jaas.config",
+//                "org.apache.kafka.common.security.scram.ScramLoginModule required username=\""+username+"\" password=\""+password+"\";");
         return props;
     }
 
     private ProducerFactory<String, String> producerFactory() {
-        DefaultKafkaProducerFactory<String, String> producerFactory = new DefaultKafkaProducerFactory<>(producerConfigs());
-        return producerFactory;
+        return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean

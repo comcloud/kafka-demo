@@ -19,10 +19,8 @@ import java.util.Map;
 
 /**
  * 消费者配置
- * @author shawn yang
- * @version [v1.0]
- * @Description
- * @CreateDate 2020/1/21
+ *
+ * @author rayss
  */
 @Configuration
 @EnableKafka
@@ -64,12 +62,11 @@ public class KafkaConsumerConfig {
     @Value("${kafka.consumer.group-id}")
     private String groupId;
 
-    @Value("${kafka.consumer.username}")
-    private String username;
-
-    @Value("${kafka.consumer.password}")
-    private String password;
-
+//    @Value("${kafka.consumer.username}")
+//    private String username;
+//
+//    @Value("${kafka.consumer.password}")
+//    private String password;
 
 
     private Map<String, Object> consumerConfigs() {
@@ -84,27 +81,23 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.MAX_PARTITION_FETCH_BYTES_CONFIG, maxPartitionFetchBytes);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG,groupId);
-        props.put("security.protocol", "SASL_PLAINTEXT");
-        props.put("sasl.mechanism", "SCRAM-SHA-512");
-        props.put("sasl.jaas.config",
-                "org.apache.kafka.common.security.scram.ScramLoginModule required username=\""+username+"\" password=\""+password+"\";");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
+//        props.put("security.protocol", "SASL_PLAINTEXT");
+//        props.put("sasl.mechanism", "SCRAM-SHA-512");
+//        props.put("sasl.jaas.config",
+//                "org.apache.kafka.common.security.scram.ScramLoginModule required username=\""+username+"\" password=\""+password+"\";");
 
         return props;
     }
 
 
-
     /**
-     *
      * @return
      */
     @Bean
     @ConditionalOnMissingBean(name = "kafkaBatchListener")
     public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, String>> kafkaBatchListener() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = kafkaListenerContainerFactory();
-        factory.setConcurrency(concurrency);
-        return factory;
+        return kafkaListenerContainerFactory();
     }
 
     private ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
@@ -119,14 +112,13 @@ public class KafkaConsumerConfig {
         //设置提交偏移量的方式， MANUAL_IMMEDIATE 表示消费一条提交一次；MANUAL表示批量提交一次
         //低版本的spring-kafka，ackMode需要引入AbstractMessageListenerContainer.AckMode.MANUAL
         factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL);
+        factory.setConcurrency(concurrency);
         return factory;
     }
 
     private ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
-
-
 
 
 }
