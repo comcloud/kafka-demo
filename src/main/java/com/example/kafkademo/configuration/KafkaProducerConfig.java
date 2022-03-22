@@ -37,6 +37,9 @@ public class KafkaProducerConfig {
     @Value("${kafka.producer.linger}")
     private Integer linger;
 
+    @Value("${kafka.producer.acks}")
+    private String acks;
+
 //    @Value("${kafka.producer.username}")
 //    private String username;
 //
@@ -50,6 +53,8 @@ public class KafkaProducerConfig {
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, batchSize);
         props.put(ProducerConfig.LINGER_MS_CONFIG, linger);
         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, bufferMemory);
+        //设置发送数据之后的安全级别：0，1，-1(all)
+        props.put(ProducerConfig.ACKS_CONFIG, acks);
         //指定key序列化器
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         //指定value序列化器
