@@ -15,6 +15,7 @@ import java.util.Map;
 
 /**
  * 生产者配置
+ *
  * @author rayss
  */
 @Configuration
@@ -49,8 +50,12 @@ public class KafkaProducerConfig {
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, batchSize);
         props.put(ProducerConfig.LINGER_MS_CONFIG, linger);
         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, bufferMemory);
+        //指定key序列化器
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        //指定value序列化器
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        //使用自定义分区器
+        props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, CustomPartitioner.class);
 //        props.put("security.protocol","SASL_PLAINTEXT");
 //        props.put("sasl.mechanism","SCRAM-SHA-512");
 //        props.put("sasl.jaas.config",
