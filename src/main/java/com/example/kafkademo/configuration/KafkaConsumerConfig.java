@@ -97,10 +97,6 @@ public class KafkaConsumerConfig {
     @Bean
     @ConditionalOnMissingBean(name = "kafkaBatchListener")
     public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, String>> kafkaBatchListener() {
-        return kafkaListenerContainerFactory();
-    }
-
-    private ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         //批量消费
