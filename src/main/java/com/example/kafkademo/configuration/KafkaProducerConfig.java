@@ -69,7 +69,10 @@ public class KafkaProducerConfig {
     }
 
     private ProducerFactory<String, String> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(producerConfigs());
+        DefaultKafkaProducerFactory<String, String> producerFactory = new DefaultKafkaProducerFactory<>(producerConfigs());
+        //必须设置transaction id prefix，这样才可以去保证幂等性
+        producerFactory.setTransactionIdPrefix("tran-");
+        return producerFactory;
     }
 
     @Bean

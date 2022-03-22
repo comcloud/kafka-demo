@@ -6,7 +6,7 @@ kafka:
     retries: 3                                          #发送失败后的重复发送次数
     buffer-memory: 33554432                             #32M批处理缓冲区
     linger: 5                                           #延迟发送时间ms，如果未达到batch-size，但是时间达到linger将发送消息
-    acks: 1                                             #集群收到数据之后对于ACK的返回级别
+    acks: -1                                             #集群收到数据之后对于ACK的返回级别
 #    username: admin                                    #连接消费用户名
 #    password: admin                                #消费连接用户密码
   consumer:

@@ -10,6 +10,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 
 /**
  * 消息发送
+ *
  * @author rayss
  */
 @Component
@@ -26,17 +27,21 @@ public class KafkaProducer {
     public void sendMessage(String topic, String message) {
         log.info("Send msg:{}", message);
 
-        //结果是一个Future
-        ListenableFuture<SendResult<String, String>> sender = KAFKA_TEMPLATE.send(new ProducerRecord<>(topic, message));
-
-        sender.addCallback(
-                result -> {
-                    assert result != null;
-                    log.info("Send success:offset({}),partition({}),topic({})",
-                            result.getRecordMetadata().offset(),
-                            result.getRecordMetadata().partition(),
-                            result.getRecordMetadata().topic());
-                },
-                ex -> log.error("Send fail:{}", ex.getMessage()));
+        //使用事务
+        KAFKA_TEMPLATE.executeInTransaction(kafkaOperations -> {
+            //结果是一个Future
+            ListenableFuture<SendResult<String, String>> sender =
+                    KAFKA_TEMPLATE.send(new ProducerRecord<>(topic, message));
+            sender.addCallback(
+                    result -> {
+                        assert result != null;
+                        log.info("Send success:offset({}),partition({}),topic({})",
+                                result.getRecordMetadata().offset(),
+                                result.getRecordMetadata().partition(),
+                                result.getRecordMetadata().topic());
+                    },
+                    ex -> log.error("Send fail:{}", ex.getMessage()));
+            return sender;
+        });
     }
 }
