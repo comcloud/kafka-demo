@@ -3,12 +3,16 @@ package com.example.kafkademo.configuration;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.Partitioner;
 import org.apache.kafka.common.Cluster;
+import org.apache.kafka.common.PartitionInfo;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
- * 自定义分区器，发送的message中如果存在demo，那么就发往0号分区，否则发往1号分区
- *
+ * 计算key的hashcode%size
+ * 保证同一topic下，同一key可以在一个partition中
+ * 如果没有指定key，则使用0
  * @version v1.0
  * @ClassName CustomPartitioner
  * @Author rayss
@@ -17,11 +21,12 @@ import java.util.Map;
 @Slf4j
 public class CustomPartitioner implements Partitioner {
 
-
     @Override
-    public int partition(String topic, Object key, byte[] keyBytes, Object value, byte[] valueBytes, Cluster cluster) {
-        String msgValue = value.toString();
-        return msgValue.contains("demo") ? 0 : 1;
+    public int partition(String topic, Object key, byte[] keyBytes,
+                         Object value, byte[] valueBytes, Cluster cluster) {
+        List<PartitionInfo> partitionInfos = cluster.availablePartitionsForTopic(topic);
+        return Objects.isNull(key) ? 0 : key.hashCode() % partitionInfos.size() - 1;
+
     }
 
     @Override

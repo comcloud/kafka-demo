@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c19c1df7-2144-47e9-945b-4805008d77cc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/component/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/component/KafkaConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/component/KafkaProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/component/KafkaProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/CustomPartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/CustomPartitioner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/KafkaConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/KafkaConsumerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/KafkaProducerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/KafkaProducerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/kafkademo/component/KafkaConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/kafkademo/component/KafkaConsumer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/kafkademo/component/KafkaProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/kafkademo/component/KafkaProducer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/kafkademo/configuration/KafkaProducerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/kafkademo/configuration/KafkaProducerConfig.class" afterDir="false" />
     </list>
@@ -57,7 +59,20 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.KafkaDemoApplication">
+    <configuration name="KafkaDemoApplicationTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.kafkademo.KafkaDemoApplicationTests" />
+      <module name="kafka-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.kafkademo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -76,6 +91,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.KafkaDemoApplicationTests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -87,7 +107,12 @@
       <updated>1647767616036</updated>
       <workItem from="1647767618452" duration="158000" />
       <workItem from="1647767786339" duration="4534000" />
-      <workItem from="1647926766798" duration="13350000" />
+      <workItem from="1647926766798" duration="14619000" />
+      <workItem from="1648041636649" duration="633000" />
+      <workItem from="1648082553340" duration="2000" />
+      <workItem from="1648091759365" duration="3357000" />
+      <workItem from="1648122068281" duration="1195000" />
+      <workItem from="1648172017831" duration="4395000" />
     </task>
     <servers />
   </component>

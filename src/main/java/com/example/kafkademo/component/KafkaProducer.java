@@ -28,7 +28,7 @@ public class KafkaProducer {
         log.info("Send msg:{}", message);
 
         //使用事务
-        KAFKA_TEMPLATE.executeInTransaction(kafkaOperations -> {
+//        KAFKA_TEMPLATE.executeInTransaction(kafkaOperations -> {
             //结果是一个Future
             ListenableFuture<SendResult<String, String>> sender =
                     KAFKA_TEMPLATE.send(new ProducerRecord<>(topic, message));
@@ -41,7 +41,7 @@ public class KafkaProducer {
                                 result.getRecordMetadata().topic());
                     },
                     ex -> log.error("Send fail:{}", ex.getMessage()));
-            return sender;
-        });
+//            return sender;
+//        });
     }
 }
