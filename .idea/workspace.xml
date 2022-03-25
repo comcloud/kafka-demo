@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c19c1df7-2144-47e9-945b-4805008d77cc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/component/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/component/KafkaConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/component/KafkaProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/component/KafkaProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/CustomPartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/CustomPartitioner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/KafkaConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/KafkaConsumerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/KafkaProducerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkademo/configuration/KafkaProducerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/kafkademo/component/KafkaConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/kafkademo/component/KafkaConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/kafkademo/component/KafkaProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/kafkademo/component/KafkaProducer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/kafkademo/configuration/KafkaProducerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/kafkademo/configuration/KafkaProducerConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,17 +66,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="KafkaDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="kafka-demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.kafkademo.KafkaDemoApplication" />
@@ -112,7 +94,8 @@
       <workItem from="1648082553340" duration="2000" />
       <workItem from="1648091759365" duration="3357000" />
       <workItem from="1648122068281" duration="1195000" />
-      <workItem from="1648172017831" duration="4395000" />
+      <workItem from="1648172017831" duration="5223000" />
+      <workItem from="1648198199202" duration="1226000" />
     </task>
     <servers />
   </component>
